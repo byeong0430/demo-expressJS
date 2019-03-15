@@ -18,6 +18,9 @@ before_script:
   - sudo pip install awscli
   - sudo pip install ecs-deploy
 
+script:
+  - echo "skipping tests"
+
 deploy:
   - provider: script
     script: bash deploy-master.sh
