@@ -16,6 +16,7 @@ env:
 before_script:
   - sudo pip install awscli
   - sudo pip install ecs-deploy
+  - sudo pip install urllib3==1.23
 
 script:
   - echo "skipping tests"
