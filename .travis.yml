@@ -1,0 +1,25 @@
+# Reference: http://www.devops-share.com/fully-automated-cicd-with-gitlab-and-aws-ecs/
+# Reference: https://github.com/fabfuel/ecs-deploy
+
+language: node_js
+cache: yarn
+python:
+  - "3.4"
+
+sudo: required
+
+services:
+  - docker
+
+env:
+  AWS_REGION: us-west-2
+
+before_script:
+  - sudo pip install awscli
+  - sudo pip install ecs-deploy
+
+deploy:
+  - provider: script
+    script: bash deploy-master.sh
+    on:
+      branch: master
