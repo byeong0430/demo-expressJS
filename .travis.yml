@@ -1,4 +1,4 @@
-# Reference: http://www.devops-share.com/fully-automated-cicd-with-gitlab-and-aws-ecs/
+# Reference: http://haoliangyu.github.io/blog/2018/03/19/AWS-ECS-auto-deployment-with-Travis-CI/
 # Reference: https://github.com/fabfuel/ecs-deploy
 
 language: node_js
@@ -18,11 +18,14 @@ before_script:
   - sudo pip install ecs-deploy
   - sudo pip install urllib3==1.23
 
+# Skip tests
 script:
   - echo "skipping tests"
 
 deploy:
   - provider: script
+    # Specify the deployment script
     script: bash deploy-master.sh
+    # Specify to deploy with code change a given branch
     on:
       branch: master
