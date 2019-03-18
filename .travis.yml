@@ -1,7 +1,7 @@
 # Reference: http://haoliangyu.github.io/blog/2018/03/19/AWS-ECS-auto-deployment-with-Travis-CI/
 # Reference: https://github.com/fabfuel/ecs-deploy
 
-language: python
+language: node_js
 python:
   - "3.4"
 
@@ -9,9 +9,6 @@ sudo: required
 
 services:
   - docker
-
-env:
-  AWS_REGION: us-west-2
 
 before_script:
   - sudo pip install awscli
