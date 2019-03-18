@@ -5,10 +5,10 @@ FROM node:8.1.2
 ARG CI_COMMIT_SHA
 ENV CI_COMMIT_SHA=$CI_COMMIT_SHA
 
+RUN mkdir -p /app
 WORKDIR /app
-COPY package.json /app
 COPY . /app
-RUN make /app
-EXPOSE 3000
+RUN npm install
+
 # PM2 reference: https://semaphoreci.com/community/tutorials/dockerizing-a-node-js-web-application
 CMD ["node", "server.js"]
